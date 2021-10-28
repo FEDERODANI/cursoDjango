@@ -14,9 +14,9 @@ Clase 1:
 # Pasos para ejecutar proyecto
 
 1 - Instalación de un entorno virtual
-2 - Instalación de la librería Django con pip.
+2 - Instalación del requirement.txt.
 
-    pip install Django
+    pip install -r requirements.txt
 
 3 - Aplicar migraciones
 
