@@ -1,6 +1,6 @@
 # Curso de Django
 
-Clase 1:
+Clase 2:
 
 - Creación de un proyecto
 - Estructura base de un proyecto
@@ -29,3 +29,6 @@ Clase 1:
 5 - Levantar Proyecto
 
     python manage.py runserver
+
+Notas:
+- Cambiar configuración a BD.
