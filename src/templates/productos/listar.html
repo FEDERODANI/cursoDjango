@@ -1,0 +1,10 @@
+<h1>Hola {{nombre_usuario}}</h1>
+
+<ul>
+
+	{% for p in lista_productos %}
+		<li>{{p.nombre}} ({{p.id}})</li>
+	{% empty %}
+		<li>No existen productos</li>	
+	{% endfor %}
+</ul>
