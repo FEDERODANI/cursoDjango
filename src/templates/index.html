@@ -3,8 +3,10 @@
 {% block contenido %}	
 	<div class="row">	
 		<div class="blog-main">
+			<h1 style="margin: 50px;">Ultimas novedades</h1>
+			
 			<div class="row mb-2">
-				{% for p in lista_productos %}
+				{% for p in ultimos_productos %}
 					<div class="col-md-6">
 						{% include "productos/includes/bloque_producto.html" %}
 					</div>
