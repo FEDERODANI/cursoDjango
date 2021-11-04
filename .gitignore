@@ -1,6 +1,1 @@
-.idea/
 *.pyc
-.pyc
-src/media/*
-logs/*
-db.sqlite3
