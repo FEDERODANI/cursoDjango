@@ -11,6 +11,7 @@ def inicio(request):
 	}
 	return render(request, template_name, ctx)
 
+"""
 def login(request):
 	template_name = "login.html"
 
@@ -18,3 +19,5 @@ def login(request):
 
 	}
 	return render(request, template_name, ctx)
+
+"""
