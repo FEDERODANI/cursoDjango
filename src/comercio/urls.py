@@ -11,6 +11,7 @@ urlpatterns = [
     
     # Includes
     path('Productos/', include('apps.productos.urls')),
+    path('Usuarios/', include('apps.usuarios.urls')),
 
     # Url propias del Proyecto
     path('', views.inicio, name="inicio"),
