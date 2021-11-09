@@ -18,19 +18,29 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = reverse_lazy("inicio")
+LOGIN_URL = reverse_lazy("login")
 
 
-# Application definition
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'apps.productos'
+    'django.contrib.staticfiles'
 ]
+
+LOCAL_APPS = [
+    'apps.productos',
+    'apps.usuarios'
+]
+
+THIRD_APPS = [
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
