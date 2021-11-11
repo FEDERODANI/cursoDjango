@@ -1,9 +1,11 @@
-from django.shortcuts          import render
-from django.views.generic.list import ListView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts           import render
+from django.views.generic.list  import ListView
 
 from .models import Producto
-
 """
+@login_required
 def listar(request):
 	template_name = "productos/listar.html"
 	# productos = Producto.objects.get(nombre="Nombre") -- filter(nombre="Nombre").order_by("-id")
@@ -15,8 +17,9 @@ def listar(request):
 	
 	return render(request, template_name, ctx)
 
+
 """
-class Listar(ListView):
+class Listar(LoginRequiredMixin, ListView):
 	template_name = "productos/listar.html"
 	model = Producto
 	context_object_name = 'lista_productos'
