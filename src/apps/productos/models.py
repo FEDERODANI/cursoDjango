@@ -8,7 +8,7 @@ class Producto(models.Model):
 
 	# Si esta en True significa que esta activo
 	activo = models.BooleanField(default=True)
-	imagen = models.ImageField(upload_to="productos", null=True)
+	imagen = models.ImageField(upload_to="productos", null=True, blank=True)
 
 	class Meta:
 		db_table="productos"

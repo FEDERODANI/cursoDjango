@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts          import render
+from django.views.generic.list import ListView
 
 from .models import Producto
 
+"""
 def listar(request):
 	template_name = "productos/listar.html"
 	# productos = Producto.objects.get(nombre="Nombre") -- filter(nombre="Nombre").order_by("-id")
@@ -12,3 +14,13 @@ def listar(request):
 	}
 	
 	return render(request, template_name, ctx)
+
+"""
+class Listar(ListView):
+	template_name = "productos/listar.html"
+	model = Producto
+	context_object_name = 'lista_productos'
+	paginate_by = 10
+
+	def get_queryset(self):
+		return Producto.objects.filter(activo=True).order_by("nombre")
