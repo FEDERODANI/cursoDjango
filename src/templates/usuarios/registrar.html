@@ -11,7 +11,10 @@
 	</div>
 	<div class="row">
 		<div class="col">
-			<form class="needs-validation" novalidate="">
+			<form method="POST">{% csrf_token %}
+				<div class="row">
+					{% include "includes/form_errors.html" %}
+				</div>
 	            <div class="row">
 	            	{{form.as_p}}
 

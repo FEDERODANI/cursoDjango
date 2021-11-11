@@ -1,8 +1,8 @@
 from django import forms
-
 from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions    import ValidationError
 
-from apps.usuarios.models import Usuario
+from apps.usuarios.models      import Usuario
 
 class UsuarioForm(UserCreationForm):
 	username = forms.CharField(label="Nombre de usuario", required=True, widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Ingrese nombre de usuario"}))
@@ -16,3 +16,9 @@ class UsuarioForm(UserCreationForm):
 	class Meta:
 		model = Usuario
 		fields = ("first_name", "last_name", "username", "email")
+
+	def clean_username(self):
+		username = self.cleaned_data["username"]
+		if not username.isalpha():
+			raise ValidationError("El nombre de usuario no puede incluir numeros")
+		return username
