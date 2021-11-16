@@ -5,7 +5,7 @@
 	<table class="table">
 	  <thead class="thead-dark">
 	    <tr>
-	      <th scope="col">#</th>
+	      <th scope="col">Cod. Producto</th>
 	      <th scope="col">Nombre</th>
 	      <th scope="col">Precio</th>
 	      <th scope="col">Cantidad</th>
@@ -20,17 +20,29 @@
 		      <td>{{producto.nombre}}</td>
 		      <td>$ {{producto.precio}}</td>
 		      <td>{{producto.cantidad}}</td>
-		      <td>{{producto.activo}}</td>
 		      <td>
-		      	<a href="">Editar</a>
+		      	{% if producto.activo %}
+		      		Activado
+		      	{% else %}
+		      		Desactivado
+		      	{% endif %}
+		   
+		      </td>
+		      <td>
+		      	<a href="{% url 'productos:admin_editar' producto.id %}">Editar</a>
 		      	<a href="">Borrar</a>
 		      	<a href="">Visualizar</a>
 		      </td>
 		    </tr>
 	    {% endfor %}
+	   	
 	   
+
 	  </tbody>
 	</table>
 
+	<div class="row">
+		{% include "includes/paginador.html" %}
+	</div>
 
 {% endblock contenido %}
