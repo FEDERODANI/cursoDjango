@@ -10,7 +10,7 @@ from apps.core.decorators import superuser_required
 from apps.core.mixins     import SuperUserRequiredMixin
 
 from .forms  import ProductoForm
-from .models import Producto
+from .models import Producto, Categoria
 """
 @login_required
 def listar(request):
@@ -31,6 +31,20 @@ class Listar(LoginRequiredMixin, ListView):
 	model = Producto
 	context_object_name = 'lista_productos'
 	paginate_by = 10
+
+	def get_context_data(self, **kwargs):
+		context = super(Listar, self).get_context_data(**kwargs)
+		
+		# print("Diferentes querys")
+		# id_categoria
+		# c1 = Categoria.objects.get(id=id_categoria) 
+		# print(c1)
+		# productos_c1 = Producto.objects.filter(categoria=c1)
+		# productos_c1 = Producto.objects.filter(categoria__tag__nombre="", categoria__id=)
+		# print(productos_c1)
+		# print(c1.productos_relacionados.all())
+
+		return context
 
 	def get_queryset(self):
 		return Producto.objects.filter(activo=True).order_by("nombre")
