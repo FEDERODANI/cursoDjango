@@ -24,11 +24,7 @@
 		<div class="container">
 			{% include "base/header.html" %}
 
-			<div class="nav-scroller py-1 mb-2">
-				<nav class="nav d-flex justify-content-between">
-					<a class="p-2 text-muted" href="{% url 'productos:listar' %}">Ir al Catalogo</a>
-				</nav>
-			</div>
+			{% include "base/navbar_top.html" %}
 
 			<div class="jumbotron p-3 p-md-5 text-white rounded" style="background-image: url('http://emotectz.com/site/wp-content/uploads/2018/08/ECOM.jpg'); height: 380px;" >
 
