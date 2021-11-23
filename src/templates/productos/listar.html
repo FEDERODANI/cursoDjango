@@ -1,10 +1,12 @@
 {% extends "base/base.html" %}
 
+{% load productos_tags %}
+
 {% block contenido %}
 	<form method="GET">
 		<div class="row">
 			<div class="col">
-				<input class="form-control" type="search" name="nombre_producto" value="{{nombre_producto}}">
+				<input class="form-control" type="search" name="nombre_producto" value="{{nombre_producto}}"> 
 			</div>
 			<div class="col">
 				<button type="submit" class="btn btn-outline-success">Buscar</button>
@@ -15,6 +17,7 @@
 	<div class="row">	
 		<div class="blog-main">
 			<div class="row mb-2">
+
 				{% for p in lista_productos %}
 					<div class="col-md-6">
 						{% include "productos/includes/bloque_producto.html" %}
@@ -23,7 +26,19 @@
 					<li>No existen productos</li>	
 				{% endfor %}
 			</div>
+			<!--
+			<p>
+				
+				{% saludar as VaribleSaludar %}
 
+				{{VaribleSaludar}}
+				
+			</p>
+			
+			<p>
+				{% saludar_con_nombre "Lucas" %}
+			</p>
+			-->
 			<div class="row">
 				{% include "includes/paginador.html" %}
 			</div>
