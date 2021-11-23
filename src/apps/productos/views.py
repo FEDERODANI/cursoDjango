@@ -43,7 +43,8 @@ class Listar(LoginRequiredMixin, ListView):
 		# productos_c1 = Producto.objects.filter(categoria__tag__nombre="", categoria__id=)
 		# print(productos_c1)
 		# print(c1.productos_relacionados.all())
-
+		import datetime as dt
+		context["fecha_actual"] = dt.datetime.now() 
 		return context
 
 	def get_queryset(self):
