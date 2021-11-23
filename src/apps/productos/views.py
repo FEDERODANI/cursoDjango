@@ -34,7 +34,7 @@ class Listar(LoginRequiredMixin, ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(Listar, self).get_context_data(**kwargs)
-		
+		context["nombre_producto"] = self.request.GET.get("nombre_producto", "")
 		# print("Diferentes querys")
 		# id_categoria
 		# c1 = Categoria.objects.get(id=id_categoria) 
@@ -47,7 +47,12 @@ class Listar(LoginRequiredMixin, ListView):
 		return context
 
 	def get_queryset(self):
-		return Producto.objects.filter(activo=True).order_by("nombre")
+		query = Producto.objects.filter(activo=True).order_by("nombre")
+		nombre_producto = self.request.GET.get("nombre_producto", None)
+		if nombre_producto:
+			query = query.filter(nombre__icontains=nombre_producto)
+
+		return query
 
 
 # ======================================================
